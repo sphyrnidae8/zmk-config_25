@@ -232,9 +232,9 @@ ZMK_LAYER(nav,
 //╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
     X_LT     &kp KP_MINUS  &kp KP_PLUS   &kp LS(TAB)   &hml LCTRL KP_DOT  &kp DQT     X_MT     &kp INS       &kp PG_UP     NAV_BSPC      NAV_DEL       &kp SQT         X_RT
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    &kp KP_N1 &kp LC(KP_N1) &kp KP_N3 &kp LC(KP_N3) &kp KP_N7 &kp LC(KP_N7) &kp SQT  X_MM     NAV_LEFT      NAV_DOWN      NAV_UP        NAV_RIGHT     &kp RET         X_RM
+    &kp KP_N1 &kp LC(KP_N1) &kp KP_N3    &kp LC(KP_N3) &kp KP_N7 &kp LC(KP_N7)       X_MM     NAV_LEFT      NAV_DOWN      NAV_UP        NAV_RIGHT     &kp RET         X_RM
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    NAV_DEL  &de_ae        &de_oe         &de_ue       &de_eszett    &euro_sign      X_MB     &kp TAB       &kp PG_DN     &de_ae        &de_oe        &de_ue          X_RB
+    &euro_sign  &de_ae      &de_oe        &de_ue       &de_eszett    &kp SQT         X_MB     &kp TAB       &kp PG_DN     &de_ae        &de_oe        &de_ue          X_RB
 //├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
     X_LH                        &hml LCTRL KP_DOT      ___           ___             X_MH      ___           CANCEL                                                    X_RH
 //╰──────╯                                           ╰─────────────┴─────────────╯ ╰──────╯ ╰─────────────┴─────────────╯                                           ╰──────╯
