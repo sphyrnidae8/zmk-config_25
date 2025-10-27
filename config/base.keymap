@@ -11,17 +11,6 @@
     #define _BT_SEL_KEYS_ &trans &trans &trans &trans &trans
 #endif
 
-#define HOST_OS 2 // macos , 1 for linux
-
-#include "zmk-helpers/unicode-chars/greek.dtsi"
-#include "zmk-helpers/unicode-chars/german.dtsi"
-
-ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)
-ZMK_UNICODE_PAIR( de_ae,   N0, N0,  E, N4,   N0, N0,  C, N4 )
-ZMK_UNICODE_PAIR( de_oe,   N0, N0,  F, N6,   N0, N0,  D, N6 )
-ZMK_UNICODE_PAIR( de_ue,   N0, N0,  F,  C,   N0, N0,  D,  C )
-ZMK_UNICODE_PAIR( de_eszett, N0, N0, D, F, N0, N0, D, F)
-
 &uc {
     default-mode = <UC_MODE_MACOS>;
 };
@@ -239,7 +228,7 @@ ZMK_LAYER(nav,
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
     X_LM     &kp LC(KP_N1) &kp KP_N3    &kp LC(KP_N3) &kp KP_N7 &kp LC(KP_N7)       X_MM     NAV_LEFT      NAV_DOWN      NAV_UP        NAV_RIGHT     &kp RET         X_RM
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    X_LB     &de_ae         &de_oe      &de_ue       &de_eszett       &kp SQT         X_MB     &kp TAB       &kp PG_DN     &de_ae        &de_oe        &de_ue          X_RB
+    X_LB     &uc UC_DE_AE  &uc UC_DE_OE  &uc UC_DE_UE  &uc UC_DE_SS  &kp SQT    X_MB     &kp TAB  &kp PG_DN  &uc UC_DE_AE  &uc UC_DE_OE  &uc UC_DE_UE  X_RB
 //├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
     X_LH                        &hml LCTRL KP_DOT      ___           ___             X_MH      ___           CANCEL                                                    X_RH
 //╰──────╯                                           ╰─────────────┴─────────────╯ ╰──────╯ ╰─────────────┴─────────────╯                                           ╰──────╯
@@ -259,11 +248,11 @@ ZMK_LAYER(fn,
 
 ZMK_LAYER(num,
 //╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    X_LT     ___           &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp LG(Z)     X_MT     &de_eszett    &de_ue        ___           &de_oe        ___             X_RT
+    X_LT     ___           &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp LG(Z)     X_MT     &uc UC_DE_SS  &uc UC_DE_UE  ___           &uc UC_DE_OE  ___             X_RT
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    X_LM &de_ae   &hml LALT NUMBER_4 &hml LSHFT NUMBER_5 &hml LCTRL NUMBER_6 ___      X_MM     ___           ___           &euro_sign    ___           ___             X_RM
+    X_LM     &uc UC_DE_AE   &hml LALT NUMBER_4 &hml LSHFT NUMBER_5 &hml LCTRL NUMBER_6 ___      X_MM     ___           ___           &uc 0x20AC 0  ___           ___             X_RM
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    X_LB     &kp LA(L)     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &euro_sign      X_MB     ___           ___           ___           ___           ___             X_RB
+    X_LB     &kp LA(L)     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &uc 0x20AC 0    X_MB     ___           ___           ___           ___           ___             X_RB
 //├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
     X_LH                                 ___           &kp N0   &kp NUMBER_0        X_MH     ___           ___                                                       X_RH
 //╰──────╯                                           ╰─────────────┴─────────────╯ ╰──────╯ ╰─────────────┴─────────────╯                                           ╰──────╯
