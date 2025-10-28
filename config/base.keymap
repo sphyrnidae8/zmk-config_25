@@ -1,7 +1,5 @@
 #include <behaviors.dtsi>
 #include <behaviors/num_word.dtsi> // Requires zmk-auto-layer module.
-#include <behaviors/unicode.dtsi> // Requires zmk-unicode module.
-#include <zmk-helpers/helper.h> // Requires zmk-helpers module.
 #include <dt-bindings/zmk/keys.h>
 #ifdef CONFIG_WIRELESS
     #include <dt-bindings/zmk/bt.h>
@@ -11,9 +9,17 @@
     #define _BT_SEL_KEYS_ &trans &trans &trans &trans &trans
 #endif
 
-&uc {
-    default-mode = <UC_MODE_MACOS>;  // Start in macOS mode, can switch to Windows
-};
+#define HOST_OS 2 // macos , 1 for linux
+
+#include <zmk-helpers/helper.h> // Requires zmk-helpers module.
+#include "zmk-helpers/unicode-chars/greek.dtsi"
+#include "zmk-helpers/unicode-chars/german.dtsi"
+
+ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)
+ZMK_UNICODE_PAIR( de_ae,   N0, N0,  E, N4,   N0, N0,  C, N4 )
+ZMK_UNICODE_PAIR( de_oe,   N0, N0,  F, N6,   N0, N0,  D, N6 )
+ZMK_UNICODE_PAIR( de_ue,   N0, N0,  F,  C,   N0, N0,  D,  C )
+ZMK_UNICODE_PAIR( de_eszett, N0, N0, D, F, N0, N0, D, F)
 
 #define DEF 0
 #define NAV 1
@@ -228,7 +234,7 @@ ZMK_LAYER(nav,
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
     X_LM     &kp LC(KP_N1) &kp KP_N3    &kp LC(KP_N3) &kp KP_N7 &kp LC(KP_N7)       X_MM     NAV_LEFT      NAV_DOWN      NAV_UP        NAV_RIGHT     &kp RET         X_RM
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    X_LB     &uc 0xE4 0xC4  &uc 0xF6 0xD6  &uc 0xFC 0xDC  &uc 0xDF 0  &kp SQT    X_MB     &kp TAB  &kp PG_DN  &uc 0xE4 0xC4  &uc 0xF6 0xD6  &uc 0xFC 0xDC  X_RB
+    X_LB     &de_ae  &de_oe  &de_ue  &de_eszett  &kp SQT    X_MB     &kp TAB  &kp PG_DN  &de_ae  &de_oe  &de_ue  X_RB
 //├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
     X_LH                        &hml LCTRL KP_DOT      ___           ___             X_MH      ___           CANCEL                                                    X_RH
 //╰──────╯                                           ╰─────────────┴─────────────╯ ╰──────╯ ╰─────────────┴─────────────╯                                           ╰──────╯
@@ -236,11 +242,11 @@ ZMK_LAYER(nav,
 
 ZMK_LAYER(fn,
 //╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    &kp F12    &kp F7        &kp F8        &kp F9        &kp LA(LS(2))  ___          X_MT     ___           &kp C_PREV    &kp C_VOL_UP  &kp C_NEXT    ___             X_RT
+    X_LT     &kp F12       &kp F7        &kp F8        &kp F9        &kp LA(LS(2))   X_MT     ___           &kp C_PREV    &kp C_VOL_UP  &kp C_NEXT    ___             X_RT
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ 
-    &hml LGUI F11 &hml LALT F4  &hml LSHFT F5 &hml LCTRL F6 &kp LS(4)   ___          X_MM     ___           DSK_PREV      VOL_DOWN      DSK_NEXT      ___             X_RM
+    X_LM     &hml LGUI F11 &hml LALT F4  &hml LSHFT F5 &hml LCTRL F6 &kp LS(4)       X_MM     ___           DSK_PREV      VOL_DOWN      DSK_NEXT      ___             X_RM
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    &kp F10    &kp F1      &kp F2        &kp F3     &kp LC(KP_PLUS) &kp LC(KP_MINUS) X_MB     PIN_APP       PIN_WIN       DSK_MGR       ___           ___             X_RB
+    X_LB     &kp F10       &kp F1        &kp F2        &kp F3        &kp LC(KP_PLUS) &kp LC(KP_MINUS) X_MB     PIN_APP       PIN_WIN       DSK_MGR       ___           ___             X_RB
 //├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
     X_LH                                               ___           ___             X_MH     &kp C_MUTE    &kp C_PP                                                  X_RH
 //╰──────╯                                           ╰─────────────┴─────────────╯ ╰──────╯ ╰─────────────┴─────────────╯                                           ╰──────╯
@@ -248,11 +254,11 @@ ZMK_LAYER(fn,
 
 ZMK_LAYER(num,
 //╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    X_LT     ___           &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp LG(Z)     X_MT     &uc 0xDF 0    &uc 0xFC 0xDC  ___          &uc 0xF6 0xD6  ___             X_RT
+    X_LT     ___           &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp LG(Z)     X_MT     &de_eszett    &de_ue        ___           &de_oe        ___             X_RT
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    X_LM     &uc 0xE4 0xC4  &hml LALT NUMBER_4 &hml LSHFT NUMBER_5 &hml LCTRL NUMBER_6 ___      X_MM     ___           ___           &uc 0x20AC 0  ___           ___             X_RM
+    X_LM     &de_ae   &hml LALT NUMBER_4 &hml LSHFT NUMBER_5 &hml LCTRL NUMBER_6 ___      X_MM     ___           ___           &euro_sign    ___           ___             X_RM
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    X_LB     &kp LA(L)     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &uc 0x20AC 0    X_MB     ___           ___           ___           ___           ___             X_RB
+    X_LB     &kp LA(L)     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &euro_sign      X_MB     ___           ___           ___           ___           ___             X_RB
 //├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
     X_LH                                 ___           &kp N0   &kp NUMBER_0        X_MH     ___           ___                                                       X_RH
 //╰──────╯                                           ╰─────────────┴─────────────╯ ╰──────╯ ╰─────────────┴─────────────╯                                           ╰──────╯

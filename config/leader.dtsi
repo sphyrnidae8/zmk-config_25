@@ -15,40 +15,36 @@
     };
 
 /* German umlauts */
-ZMK_LEADER_SEQUENCE(de_ae,      &uc 0xE4 0xC4,  A)  // ä/Ä
-ZMK_LEADER_SEQUENCE(de_oe,      &uc 0xF6 0xD6,  O)  // ö/Ö
-ZMK_LEADER_SEQUENCE(de_ue,      &uc 0xFC 0xDC,  U)  // ü/Ü
-ZMK_LEADER_SEQUENCE(de_eszett,  &uc 0xDF 0,     S)  // ß
-
-/* OS Unicode mode switching */
-ZMK_LEADER_SEQUENCE(os_macos,   &uc UC_SET_MACOS,      O M)  // Switch to macOS mode
-ZMK_LEADER_SEQUENCE(os_windows, &uc UC_SET_WIN_COMPOSE, O W)  // Switch to Windows mode (requires WinCompose)
+ZMK_LEADER_SEQUENCE(de_ae,      &de_ae,         A)  // ä
+ZMK_LEADER_SEQUENCE(de_oe,      &de_oe,         O)  // ö
+ZMK_LEADER_SEQUENCE(de_ue,      &de_ue,         U)  // ü
+ZMK_LEADER_SEQUENCE(de_eszett,  &de_eszett,     S)  // ß
 
 /* Greek letters */
-ZMK_LEADER_SEQUENCE(el_alpha,   &uc 0x03B1 0x0391,  E A)  // α/Α
-ZMK_LEADER_SEQUENCE(el_beta,    &uc 0x03B2 0x0392,  E B)  // β/Β
-ZMK_LEADER_SEQUENCE(el_gamma,   &uc 0x03B3 0x0393,  E G)  // γ/Γ
-ZMK_LEADER_SEQUENCE(el_delta,   &uc 0x03B4 0x0394,  E D)  // δ/Δ
-ZMK_LEADER_SEQUENCE(el_epsilon, &uc 0x03B5 0x0395,  E E)  // ε/Ε
-ZMK_LEADER_SEQUENCE(el_zeta,    &uc 0x03B6 0x0396,  E Z)  // ζ/Ζ
-ZMK_LEADER_SEQUENCE(el_eta,     &uc 0x03B7 0x0397,  E H)  // η/Η
-ZMK_LEADER_SEQUENCE(el_theta,   &uc 0x03B8 0x0398,  E V)  // θ/Θ
-ZMK_LEADER_SEQUENCE(el_iota,    &uc 0x03B9 0x0399,  E I)  // ι/Ι
-ZMK_LEADER_SEQUENCE(el_kappa,   &uc 0x03BA 0x039A,  E K)  // κ/Κ
-ZMK_LEADER_SEQUENCE(el_lambda,  &uc 0x03BB 0x039B,  E L)  // λ/Λ
-ZMK_LEADER_SEQUENCE(el_mu,      &uc 0x03BC 0x039C,  E M)  // μ/Μ
-ZMK_LEADER_SEQUENCE(el_nu,      &uc 0x03BD 0x039D,  E N)  // ν/Ν
-ZMK_LEADER_SEQUENCE(el_xi,      &uc 0x03BE 0x039E,  E X)  // ξ/Ξ
-ZMK_LEADER_SEQUENCE(el_omikron, &uc 0x03BF 0x039F,  E O)  // ο/Ο
-ZMK_LEADER_SEQUENCE(el_pi,      &uc 0x03C0 0x03A0,  E P)  // π/Π
-ZMK_LEADER_SEQUENCE(el_rho,     &uc 0x03C1 0x03A1,  E R)  // ρ/Ρ
-ZMK_LEADER_SEQUENCE(el_sigma,   &uc 0x03C3 0x03A3,  E S)  // σ/Σ
-ZMK_LEADER_SEQUENCE(el_tau,     &uc 0x03C4 0x03A4,  E T)  // τ/Τ
-ZMK_LEADER_SEQUENCE(el_upsilon, &uc 0x03C5 0x03A5,  E U)  // υ/Υ
-ZMK_LEADER_SEQUENCE(el_phi,     &uc 0x03D5 0x03A6,  E F)  // ϕ/Φ
-ZMK_LEADER_SEQUENCE(el_chi,     &uc 0x03C7 0x03A7,  E C)  // χ/Χ
-ZMK_LEADER_SEQUENCE(el_psi,     &uc 0x03C8 0x03A8,  E Y)  // ψ/Ψ
-ZMK_LEADER_SEQUENCE(el_omega,   &uc 0x03C9 0x03A9,  E W)  // ω/Ω
+ZMK_LEADER_SEQUENCE(el_alpha,   &el_alpha,      E A)  // α
+ZMK_LEADER_SEQUENCE(el_beta,    &el_beta,       E B)  // β
+ZMK_LEADER_SEQUENCE(el_gamma,   &el_gamma,      E G)  // γ
+ZMK_LEADER_SEQUENCE(el_delta,   &el_delta,      E D)  // δ
+ZMK_LEADER_SEQUENCE(el_epsilon, &el_epsilon,    E E)  // ε
+ZMK_LEADER_SEQUENCE(el_zeta,    &el_zeta,       E Z)  // ζ
+ZMK_LEADER_SEQUENCE(el_eta,     &el_eta,        E H)  // η
+ZMK_LEADER_SEQUENCE(el_theta,   &el_theta,      E V)  // θ
+ZMK_LEADER_SEQUENCE(el_iota,    &el_iota,       E I)  // ι
+ZMK_LEADER_SEQUENCE(el_kappa,   &el_kappa,      E K)  // κ
+ZMK_LEADER_SEQUENCE(el_lambda,  &el_lambda,     E L)  // λ
+ZMK_LEADER_SEQUENCE(el_mu,      &el_mu,         E M)  // μ
+ZMK_LEADER_SEQUENCE(el_nu,      &el_nu,         E N)  // ν
+ZMK_LEADER_SEQUENCE(el_xi,      &el_xi,         E X)  // ξ
+ZMK_LEADER_SEQUENCE(el_omikron, &el_omikron,    E O)  // ο
+ZMK_LEADER_SEQUENCE(el_pi,      &el_pi,         E P)  // π
+ZMK_LEADER_SEQUENCE(el_rho,     &el_rho,        E R)  // ρ
+ZMK_LEADER_SEQUENCE(el_sigma,   &el_sigma,      E S)  // σ
+ZMK_LEADER_SEQUENCE(el_tau,     &el_tau,        E T)  // τ
+ZMK_LEADER_SEQUENCE(el_upsilon, &el_upsilon,    E U)  // υ
+ZMK_LEADER_SEQUENCE(el_phi,     &el_phi,        E F)  // ϕ
+ZMK_LEADER_SEQUENCE(el_chi,     &el_chi,        E C)  // χ
+ZMK_LEADER_SEQUENCE(el_psi,     &el_psi,        E Y)  // ψ
+ZMK_LEADER_SEQUENCE(el_omega,   &el_omega,      E W)  // ω
 
 // BLE and USB
 #ifdef CONFIG_WIRELESS
